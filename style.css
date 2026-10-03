@@ -1,0 +1,92 @@
+/* كشف حساب إلكتروني — ألوان «دفتر الدين» (أخضر المحل) فاتح/داكن */
+:root {
+  --bg: #f4f6f3;
+  --card: #ffffff;
+  --text: #1c2420;
+  --muted: #5f6b64;
+  --line: #e1e6e2;
+  --brand: #1f6b46;
+  --owe: #b3261e;
+  --credit: #1f6b46;
+  --soft: #eaf3ee;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101512;
+    --card: #19211c;
+    --text: #e6ece8;
+    --muted: #9aa8a0;
+    --line: #2a352f;
+    --brand: #5cc28f;
+    --owe: #f2867d;
+    --credit: #5cc28f;
+    --soft: #1f2c25;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, "Noto Naskh Arabic", system-ui, sans-serif;
+  line-height: 1.6;
+}
+main { max-width: 760px; margin: 0 auto; padding: 16px; display: grid; gap: 14px; }
+.loading { text-align: center; color: var(--muted); padding: 48px 0; }
+
+.head { text-align: center; padding-top: 8px; }
+.shop { margin: 0; color: var(--brand); font-weight: 700; }
+.who { margin: 4px 0; font-size: 1.6rem; text-wrap: balance; }
+.when { margin: 0; color: var(--muted); font-size: .9rem; }
+
+section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+h2 { margin: 0 0 10px; font-size: 1.05rem; }
+h2 small { color: var(--muted); font-weight: 400; }
+
+.balance { text-align: center; }
+.balance .label { margin: 0; color: var(--muted); }
+.balance .amount { margin: 4px 0 0; font-size: 2.2rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.balance.owe .amount { color: var(--owe); }
+.balance.credit .amount, .balance.zero .amount { color: var(--credit); }
+.balance .cur { font-size: 1rem; font-weight: 600; color: var(--muted); }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th { text-align: start; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--line); padding: 6px 8px; white-space: nowrap; }
+td { border-bottom: 1px solid var(--line); padding: 7px 8px; vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; direction: ltr; text-align: end; }
+td.paid { color: var(--credit); }
+td.run { color: var(--muted); }
+td.date { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.empty { color: var(--muted); margin: 0; }
+
+.channel { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.channel:last-of-type { border-bottom: 0; }
+.channel .info { flex: 1; min-width: 0; }
+.channel p { margin: 0; }
+.channel .name { font-weight: 700; }
+.channel .no { font-size: 1.1rem; font-variant-numeric: tabular-nums; text-align: end; }
+.channel .holder { color: var(--muted); font-size: .88rem; }
+
+button, .sent {
+  font: inherit; border-radius: 10px; cursor: pointer; text-decoration: none;
+}
+button:focus-visible, .sent:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.copy { border: 1px solid var(--line); background: var(--soft); color: var(--text); padding: 6px 14px; }
+.sent { display: block; margin-top: 12px; text-align: center; background: var(--brand); color: #fff; padding: 12px; font-weight: 700; }
+@media (prefers-color-scheme: dark) { .sent { color: #0d1a13; } }
+.hint { margin: 6px 0 0; text-align: center; color: var(--muted); font-size: .88rem; }
+
+.foot { text-align: center; color: var(--muted); font-size: .85rem; }
+.foot p { margin: 6px 0 0; }
+.print { border: 1px solid var(--line); background: var(--card); color: var(--text); padding: 8px 18px; }
+.brand { opacity: .7; }
+
+.error { text-align: center; margin-top: 40px; }
+.error h1 { color: var(--owe); font-size: 1.3rem; }
+
+@media print {
+  body { background: #fff; color: #000; }
+  section { border-color: #ccc; }
+  .copy, .sent, .hint, .print { display: none; }
+}
