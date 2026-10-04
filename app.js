@@ -157,7 +157,7 @@
       list.appendChild(b);
     });
     if (pays.length) {
-      pay.appendChild(el('p', 'step', '١. اختر أين تحوّل'));
+      pay.appendChild(el('p', 'step', '١. اختر طريقة الدفع المناسبة'));
       pay.appendChild(list);
       pay.appendChild(detail);
     }
