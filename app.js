@@ -279,7 +279,8 @@
       return p[1] || p[3] || p[4] || p[5];
     }) : [];
     var wa = waNumber(st.sp);
-    if (pays.length || wa) main.appendChild(paySection(st, pays, wa, bal));
+    // كشف المورّد: المحل هو من يدفع، فلا «ادفع الآن»
+    if (st.k !== 1 && (pays.length || wa)) main.appendChild(paySection(st, pays, wa, bal));
 
     var foot = el('footer', 'foot');
     var pr = el('button', 'print', 'طباعة / حفظ PDF');
