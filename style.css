@@ -90,3 +90,31 @@ button:focus-visible, .sent:focus-visible { outline: 3px solid var(--brand); out
   section { border-color: #ccc; }
   .copy, .sent, .hint, .print { display: none; }
 }
+
+/* ادفع الآن */
+.step { margin: 14px 0 8px; font-weight: 700; }
+.gateways { display: flex; flex-wrap: wrap; gap: 8px; }
+.gw { border: 1px solid var(--line); background: var(--card); color: var(--text); padding: 10px 14px; font-weight: 600; }
+.gw.on { border-color: var(--brand); background: var(--soft); box-shadow: inset 0 0 0 1px var(--brand); }
+.gw-detail { display: grid; gap: 4px; margin-top: 8px; }
+.field { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.field .info { flex: 1; min-width: 0; }
+.field p { margin: 0; }
+.field .label { color: var(--muted); font-size: .85rem; }
+.field .value { font-size: 1.1rem; font-variant-numeric: tabular-nums; text-align: end; overflow-wrap: anywhere; }
+.gw-detail .holder { margin: 6px 0 0; color: var(--muted); }
+.qr-box { text-align: center; margin-top: 10px; }
+.qr { width: 200px; height: 200px; image-rendering: pixelated; border-radius: 8px; }
+.amount-row { display: flex; align-items: center; gap: 10px; }
+.amount-in { flex: 1; font: inherit; font-size: 1.4rem; font-variant-numeric: tabular-nums; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--text); }
+.amount-in:focus-visible { outline: 3px solid var(--brand); outline-offset: 1px; }
+.err { color: var(--owe); margin: 6px 0 0; min-height: 1.2em; }
+button.sent { width: 100%; border: 0; }
+button.sent:disabled { opacity: .45; cursor: not-allowed; }
+
+/* قيد المطابقة */
+.pending { border-style: dashed; }
+.pend-row { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.pend-row .gw { flex: 1; border: 0; padding: 0; background: none; font-weight: 400; color: var(--muted); }
+.pend-row .num { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--muted); }
+@media print { .pay { display: none; } }
